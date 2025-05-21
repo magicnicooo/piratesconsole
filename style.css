@@ -1,0 +1,163 @@
+body {
+margin: 0;
+  background: #512D27;
+}
+
+.console {
+  position: relative;
+  width: 1915px; /* adapte à la taille de ton image */
+  height: 620px;
+  background-image: url('console.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  border: 2px solid #333;
+  margin: 293px auto 0 auto; /* ← 80px en haut, centré horizontalement */
+}
+
+
+.round-btn-orange {
+    position: absolute;
+   width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 40% 40%, #e67e22, #c45d00);
+  border-radius: 50%;
+  border: 3px solid #994c00;
+  box-shadow:
+    0 6px 15px rgba(0, 0, 0, 0.3),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition:
+    transform 0.08s ease-in,
+    box-shadow 0.15s ease-in;
+}
+
+.round-btn-orange.active {
+  transform: scale(0.9);
+  background: radial-gradient(circle at 40% 40%, #ffc14d, #ff7f00);
+  box-shadow:
+    0 0 20px rgba(255, 140, 0, 0.6),
+    inset 0 0 10px rgba(255, 200, 0, 0.5);
+
+}
+
+.round-btn-red {
+    position: absolute;
+   width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 40% 40%, #e63622, #c40700);
+  border-radius: 50%;
+  border: 3px solid #990800;
+  box-shadow:
+    0 6px 15px rgba(0, 0, 0, 0.3),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition:
+    transform 0.08s ease-in,
+    box-shadow 0.15s ease-in;
+}
+
+.round-btn-red.active {
+  transform: scale(0.9);
+  background: radial-gradient(circle at 40% 40%, #ff564d, #ff0d00);
+  box-shadow:
+    0 0 20px rgba(255, 25, 0, 0.6),
+    inset 0 0 10px rgba(255, 34, 0, 0.5);
+}
+
+.shine {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  width: 40px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  filter: blur(1.5px);
+  pointer-events: none;
+}
+
+.momentary-btn {
+  position: absolute;
+  top: 382px;     /* ajuste selon ton image */
+  left: 840px;
+  width: 45px;
+  height: 45px;
+  background: radial-gradient(circle at 40% 40%, #171717, #111111);
+  border: 3px solid #000000;
+  border-radius: 50%;
+  box-shadow: inset 0 -4px 6px rgba(0,0,0,0.5);
+  cursor: pointer;
+  transition: background 0.1s, box-shadow 0.1s;
+}
+
+.momentary-btn.pressed {
+  box-shadow: inset 5px 5px 15px 5px rgba(0, 0, 0, 0.5)
+}
+
+.silence-btn {
+  position: absolute;
+  top: 350px; /* ajuste selon ta maquette */
+  left: 450px;
+  padding: 7px 3px;
+  background-color: #e67e22;
+  color: black;
+  font-size: 9px;
+  font-weight: normal;
+  border: 2px solid #c45d00;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.1s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+
+.silence-btn:active {
+  transform: scale(0.96);
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* Positionnement des boutons */
+#dispatchInhibit {
+top: 490px;
+left: 1750px;
+}
+#rampStop {
+top: 357px;
+left: 1750px;
+}
+
+.rotary-switch {
+  position:absolute;
+  top: 500px;
+  left: 420px;
+  width: 50px;
+  height: 50px;
+  background-color: #111;
+  border: 4px solid #333;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.15s ease-in-out;
+  box-shadow: inset -2px -2px 5px #000, inset 2px 2px 5px #444;
+}
+
+.rotary-switch::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 25px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.rotary-switch.on {
+  transform: rotate(45deg);
+}
+
+.rotary-switch.off {
+  transform: rotate(-45deg);
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Console</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="console">
+
+<div class="selector-switch" id="industrialSelector">
+  <div class="lever"></div>
+</div>
+
+    
+    <button id="dispatchInhibit" class="round-btn-orange"> <!--Bouton Dispatch Inhibit-->
+      <div class="shine"></div>
+    </button>
+
+      <button id="rampStop" class="round-btn-red">         <!--Bouton Rampe Stop-->
+    <div class="shine"></div>
+    
+  </button>
+  <button id="momentaryButton" class="momentary-btn">      <!--Bouton Alarme Circuit-->
+</button>
+  
+      <div class="rotary-switch off" id="rotarySwitch"></div>
+
+<audio id="alarmSound" src="alarm-clock.mp3" loop preload="auto"></audio> <!--Musique Alarme-->
+<button id="silenceButton" class="silence-btn">Silence</button>           <!--Bouton Silence-->
+<audio id="music" src="bgm.mp3" preload="auto"></audio>                 <!-- BGM-->
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
