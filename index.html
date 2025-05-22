@@ -12,21 +12,47 @@
   <div class="lever"></div>
 </div>
 
-    
     <button id="dispatchInhibit" class="round-btn-orange"> <!--Bouton Dispatch Inhibit-->
       <div class="shine"></div>
     </button>
+    <!-- Bouton RESET pour Dispatch Inhibit -->
+    <button id="resetDispatchInhibit" class="reset-btn">
+    </button>
 
-      <button id="rampStop" class="round-btn-red">         <!--Bouton Rampe Stop-->
-    <div class="shine"></div>
-    
-  </button>
-  <button id="momentaryButton" class="momentary-btn">      <!--Bouton Alarme Circuit-->
-</button>
-  
-      <div class="rotary-switch off" id="rotarySwitch"></div>
+    <button id="rampStop" class="round-btn-red">         <!--Bouton Rampe Stop-->
+      <div class="shine"></div>
+    </button>
+    <!-- Bouton RESET pour Rampe Stop -->
+    <button id="resetRampStop" class="reset-btn"
+    ></button>
 
-<audio id="alarmSound" src="alarm-clock.mp3" loop preload="auto"></audio> <!--Musique Alarme-->
+    <button id="rideStop" class="round-btn-red">         <!--Bouton Ride Stop-->
+      <div class="shine"></div>
+    </button>
+
+    <button id="momentaryButton" class="momentary-btn">      <!--Bouton Test Lampe-->
+      </button>
+    <audio id="alarmSound" src="alarm-clock.mp3" loop preload="auto"></audio> <!--Musique Alarme-->
+
+    <button id="spielevac" class="spielevac">                 <!--Bouton Spiel Evac-->
+      </button>
+<audio id="musicevac" src="musicevac.mp3" loop preload="auto"></audio> <!--Spiel d'Evacuation-->
+
+    <button id="spiel101" class="spiel101">                 <!--Bouton Spiel 101-->
+      </button>
+<audio id="music101" src="music101.mp3" loop preload="auto"></audio> <!--Spiel d'Evacuation-->
+
+    <div class="attractionlight off" id="rotarySwitch1">  <!--Eclairages Attraction-->
+      </div>
+    <div class="led1" id="lightIndicator1"></div>           <!--Témoin lumineux 1-->
+
+    <div class="restaurantlight off" id="rotarySwitch2">  <!--Eclairages Restaurant-->
+      </div>
+    <div class="led2" id="lightIndicator2"></div>           <!--Témoin lumineux 2-->
+
+    <div class="emergencylight off" id="rotarySwitch3">  <!--Eclairages Restaurant-->
+      </div>
+
 <button id="silenceButton" class="silence-btn">Silence</button>           <!--Bouton Silence-->
 <audio id="music" src="bgm.mp3" preload="auto"></audio>                 <!-- BGM-->
   </div>

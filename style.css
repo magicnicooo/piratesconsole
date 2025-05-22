@@ -1,21 +1,21 @@
 body {
 margin: 0;
-  background: #512D27;
+  background: darkslategray;
 }
 
 .console {
   position: relative;
-  width: 1915px; /* adapte à la taille de ton image */
+  width: 1915px; 
   height: 620px;
   background-image: url('console.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0 auto;
   border: 2px solid #333;
-  margin: 293px auto 0 auto; /* ← 80px en haut, centré horizontalement */
+  margin: 293px auto 0 auto; 
 }
 
-
+/* champignon orange */
 .round-btn-orange {
     position: absolute;
    width: 80px;
@@ -28,8 +28,8 @@ margin: 0;
     inset 0 -4px 8px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   transition:
-    transform 0.08s ease-in,
-    box-shadow 0.15s ease-in;
+    transform 0.06s ease-in,
+    box-shadow 0.12s ease-in;
 }
 
 .round-btn-orange.active {
@@ -38,9 +38,40 @@ margin: 0;
   box-shadow:
     0 0 20px rgba(255, 140, 0, 0.6),
     inset 0 0 10px rgba(255, 200, 0, 0.5);
-
+}
+/* Bouton RESET pour Dispatch Inhibit */
+.reset-btn {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #e67e22, #c45d00);
+  border: 3px solid #994c00;
+  box-shadow:
+    0 6px 15px rgba(0, 0, 0, 0.3),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  margin-left: 20px;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
+/* Effet clignotant glow pour reset */
+.reset-btn.blink {
+  box-shadow:
+    0 0 20px rgba(255, 140, 0, 0.8),
+    inset 0 0 15px rgba(255, 200, 0, 0.7);
+  animation: blinkGlow 1.7s infinite;
+}
+
+@keyframes blinkGlow {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0.4;
+  }
+}
+/* champignon rouge */
 .round-btn-red {
     position: absolute;
    width: 80px;
@@ -53,8 +84,8 @@ margin: 0;
     inset 0 -4px 8px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   transition:
-    transform 0.08s ease-in,
-    box-shadow 0.15s ease-in;
+    transform 0.06s ease-in,
+    box-shadow 0.12s ease-in;
 }
 
 .round-btn-red.active {
@@ -76,47 +107,6 @@ margin: 0;
   filter: blur(1.5px);
   pointer-events: none;
 }
-
-.momentary-btn {
-  position: absolute;
-  top: 382px;     /* ajuste selon ton image */
-  left: 840px;
-  width: 45px;
-  height: 45px;
-  background: radial-gradient(circle at 40% 40%, #171717, #111111);
-  border: 3px solid #000000;
-  border-radius: 50%;
-  box-shadow: inset 0 -4px 6px rgba(0,0,0,0.5);
-  cursor: pointer;
-  transition: background 0.1s, box-shadow 0.1s;
-}
-
-.momentary-btn.pressed {
-  box-shadow: inset 5px 5px 15px 5px rgba(0, 0, 0, 0.5)
-}
-
-.silence-btn {
-  position: absolute;
-  top: 350px; /* ajuste selon ta maquette */
-  left: 450px;
-  padding: 7px 3px;
-  background-color: #e67e22;
-  color: black;
-  font-size: 9px;
-  font-weight: normal;
-  border: 2px solid #c45d00;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: transform 0.08s ease, box-shadow 0.1s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-
-.silence-btn:active {
-  transform: scale(0.96);
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
-}
-
 /* Positionnement des boutons */
 #dispatchInhibit {
 top: 490px;
@@ -126,8 +116,117 @@ left: 1750px;
 top: 357px;
 left: 1750px;
 }
+#rideStop {
+top: 224px;
+left: 1750px;
+}
+#resetDispatchInhibit {
+top: 510px;
+left: 1638px;
+}
+#resetRampStop {
+top: 377px;
+left: 1638px;
+}
 
-.rotary-switch {
+/* Bouton testlamp */
+.momentary-btn {
+  position: absolute;
+  top: 382px;
+  left: 840px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #111, #000);
+  border: 3px solid #ccc;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.06),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.6),
+    0 0 3px #555,
+    0 0 10px #666 inset;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  cursor: pointer;
+}
+
+.momentary-btn.pressed {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.7),
+    0 0 2px #333;
+}
+
+.spielevac {
+  position: absolute;
+  top: 108px;
+  left: 528px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #111, #000);
+  border: 3px solid #ccc;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.06),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.6),
+    0 0 3px #555,
+    0 0 10px #666 inset;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  cursor: pointer;
+}
+
+.spielevac.pressed {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.7),
+    0 0 2px #333;
+}
+
+.spiel101 {
+  position: absolute;
+  top: 246px;
+  left: 528px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #111, #000);
+  border: 3px solid #ccc;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.06),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.6),
+    0 0 3px #555,
+    0 0 10px #666 inset;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  cursor: pointer;
+}
+
+.spiel101.pressed {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.7),
+    0 0 2px #333;
+}
+
+.silence-btn {
+  position: absolute;
+  top: 350px;
+  left: 450px;
+  padding: 7px 3px;
+  background-color: #e6b222;
+  color: black;
+  font-size: 9px;
+  font-weight: normal;
+  border: 2px solid #c49000;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.1s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.silence-btn:active {
+  transform: scale(0.96);
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
+}
+/* bouton rotatif Lumières */
+.attractionlight {
   position:absolute;
   top: 500px;
   left: 420px;
@@ -136,13 +235,12 @@ left: 1750px;
   background-color: #111;
   border: 4px solid #333;
   border-radius: 50%;
-  position: relative;
   cursor: pointer;
   transition: transform 0.15s ease-in-out;
   box-shadow: inset -2px -2px 5px #000, inset 2px 2px 5px #444;
 }
 
-.rotary-switch::before {
+.attractionlight::before {
   content: "";
   position: absolute;
   top: 5px;
@@ -154,10 +252,112 @@ left: 1750px;
   border-radius: 2px;
 }
 
-.rotary-switch.on {
+.attractionlight.on {
   transform: rotate(45deg);
 }
 
-.rotary-switch.off {
+.attractionlight.off {
+  transform: rotate(-45deg);
+}
+.led1 {
+  position: absolute;
+  top: 510px;
+  left: 503px;
+  width: 20px;
+  height: 20px;
+  background-color: #030;
+  border: 2px solid #060;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px #000;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.led1.on {
+  background-color: #0f0;
+  box-shadow: 0 0 6px #0f0, inset 0 0 2px #080;
+}
+
+.restaurantlight {
+  position:absolute;
+  top: 500px;
+  left: 610px;
+  width: 50px;
+  height: 50px;
+  background-color: #111;
+  border: 4px solid #333;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s ease-in-out;
+  box-shadow: inset -2px -2px 5px #000, inset 2px 2px 5px #444;
+}
+
+.restaurantlight::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 25px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.restaurantlight.on {
+  transform: rotate(45deg);
+}
+
+.restaurantlight.off {
+  transform: rotate(-45deg);
+}
+.led2 {
+  position: absolute;
+  top: 510px;
+  left: 691px;
+  width: 20px;
+  height: 20px;
+  background-color: #030;
+  border: 2px solid #060;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px #000;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.led2.on {
+  background-color: #0f0;
+  box-shadow: 0 0 6px #0f0, inset 0 0 2px #080;
+}
+
+.emergencylight {
+  position:absolute;
+  top: 500px;
+  left: 780px;
+  width: 50px;
+  height: 50px;
+  background-color: #111;
+  border: 4px solid #333;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s ease-in-out;
+  box-shadow: inset -2px -2px 5px #000, inset 2px 2px 5px #444;
+}
+
+.emergencylight::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 25px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.emergencylight.on {
+  transform: rotate(45deg);
+}
+
+.emergencylight.off {
   transform: rotate(-45deg);
 }
