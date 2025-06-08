@@ -11,6 +11,12 @@ dispatchBtn.addEventListener('click', () => {
     console.log('Reset required before using Dispatch Inhibit again');
     return;
   }
+  if (!dispatchActive) {
+    ajouterMessage("Dispatch Inhibit enclenché")
+  }
+  if (dispatchActive) {
+    ajouterMessage("Dispatch Inhibit relevé")
+  }
 
   // Toggle état bouton champignon
   dispatchActive = !dispatchActive;
@@ -73,15 +79,37 @@ resetRampBtn.addEventListener('click', () => {
 });
 
 // Bouton Ride Stop
-const rideStop = document.getElementById('rideStop');
+const rideStopBtn = document.getElementById('rideStop');
+const resetRideBtn = document.getElementById('resetRideStop');
 
-rideStop.addEventListener('click', () => {
-  rideStop.classList.toggle('active');
+let rideActive = false;
+let canResetRide = false;
+let rideLocked = false;
+
+rideStopBtn.addEventListener('click', () => {
+  if (rideLocked) {
+    console.log('Reset Ride Stop required before reuse');
+    return;
+  }
+  rideActive = !rideActive;
+  rideStopBtn.classList.toggle('active', rideActive);
+
+  if (!rideActive) {
+    canResetRide = true;
+    rideLocked = true;
+    resetRideBtn.classList.add('blink');
+  }
 });
 
-
-
-
+resetRideBtn.addEventListener('click', () => {
+  if (!canResetRide) return;
+  canResetRide = false;
+  rideLocked = false;
+  rideActive = false;
+  rideStopBtn.classList.remove('active');
+  resetRideBtn.classList.remove('blink');
+  console.log('Ride Stop reset done');
+});
 
 const momentaryBtn = document.getElementById('momentaryButton');
 const alarmSound = document.getElementById('alarmSound');
@@ -176,10 +204,10 @@ spiel101Button.addEventListener('click', () => {
   }
 });
 
-
-//Bouton Eclairages Attraction + Témoin Led
+//Bouton Eclairages Attraction + Témoin Led + Lueur orange
 const switchl = document.getElementById('rotarySwitch1');
 const led1 = document.getElementById('lightIndicator1');
+const screenGlow = document.getElementById('screenGlow');
 let isOn = false;
 
 switchl.addEventListener('click', () => {
@@ -187,6 +215,9 @@ switchl.addEventListener('click', () => {
   switchl.classList.toggle('on', isOn);
   switchl.classList.toggle('off', !isOn);
   led1.classList.toggle('on', isOn);
+
+  // Gérer la lueur orange
+  screenGlow.classList.toggle('on', isOn);
 });
 
 //Bouton Eclairages Restaurant + Témoin Led
@@ -209,4 +240,97 @@ switch3.addEventListener('click', () => {
   isOn = !isOn;
   switch3.classList.toggle('on', isOn);
   switch3.classList.toggle('off', !isOn);
+});
+
+//Ecran APEX
+function obtenirHorodatage() {
+  const maintenant = new Date();
+  const heures = String(maintenant.getHours()).padStart(2, '0');
+  const minutes = String(maintenant.getMinutes()).padStart(2, '0');
+  const secondes = String(maintenant.getSeconds()).padStart(2, '0');
+  return `[${heures}:${minutes}:${secondes}]`;
+}
+
+function ajouterMessage(texte) {
+  const screen = document.getElementById('screen');
+  const message = document.createElement('div');
+  message.className = 'message';
+  message.textContent = `${obtenirHorodatage()} ${texte}`;
+  screen.appendChild(message);
+  screen.scrollTop = screen.scrollHeight; // scroll en bas automatique
+}
+
+
+
+// Exemple d'ajout
+setTimeout(() => {
+  ajouterMessage("Démarrage du système...");
+}, 1000);
+
+setTimeout(() => {
+  ajouterMessage("Chargement des modules");
+  ajouterMessage("Prêt.");
+}, 2000);
+
+
+//Système de clé
+
+const key = document.getElementById('key');
+const lock = document.getElementById('lock');
+
+let keyTaken = false;
+let startPos = { x: 0, y: 0 };
+
+window.addEventListener('load', () => {
+  const rect = key.getBoundingClientRect();
+  startPos.x = rect.left + window.scrollX;
+  startPos.y = rect.top + window.scrollY;
+  key.style.left = `${startPos.x}px`;
+  key.style.top = `${startPos.y}px`;
+  key.style.right = 'auto';
+  key.style.position = 'absolute';
+});
+
+key.addEventListener('click', e => {
+  if (key.style.display === 'none') return;
+  e.stopPropagation();
+  keyTaken = true;
+  key.classList.add('active');
+});
+document.addEventListener('click', e => {
+  if (!keyTaken) return;
+
+  if (e.target === lock) {
+    if (key.style.display !== 'none') {
+      key.style.display = 'none';
+      ajouterMessage("Clé insérée dans la serrure");
+      keyTaken = false;
+      key.classList.remove('active');
+    }
+  } else if (e.target !== key) {
+    keyTaken = false;
+    key.classList.remove('active');
+    key.style.left = `${startPos.x}px`;
+    key.style.top = `${startPos.y}px`;
+  }
+});
+
+document.addEventListener('mousemove', e => {
+  if (!keyTaken) return;
+  key.style.left = `${e.clientX - key.width/2}px`;
+  key.style.top = `${e.clientY - key.height/2}px`;
+});
+
+document.addEventListener('click', e => {
+  if (!keyTaken) return;
+
+  if (e.target === lock) {
+    key.style.display = 'none';
+    ajouterMessage("Clé insérée dans la serrure");
+  } else if (e.target !== key) {
+    keyTaken = false;
+    key.classList.remove('active');
+    key.style.left = `${startPos.x}px`;
+    key.style.top = `${startPos.y}px`;
+  }
 });

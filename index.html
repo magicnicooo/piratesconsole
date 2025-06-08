@@ -6,12 +6,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!--Clé 455-->
+  <img src="cle.png" id="key" alt="Clé" />
+  <div id="lock"></div>
+  <!--Ecran APEX-->
+<div class="screen" id="screen">
+</div>
+
   <div class="console">
 
 <div class="selector-switch" id="industrialSelector">
   <div class="lever"></div>
 </div>
-
     <button id="dispatchInhibit" class="round-btn-orange"> <!--Bouton Dispatch Inhibit-->
       <div class="shine"></div>
     </button>
@@ -23,11 +29,14 @@
       <div class="shine"></div>
     </button>
     <!-- Bouton RESET pour Rampe Stop -->
-    <button id="resetRampStop" class="reset-btn"
-    ></button>
+    <button id="resetRampStop" class="reset-btn">
+    </button>
 
     <button id="rideStop" class="round-btn-red">         <!--Bouton Ride Stop-->
       <div class="shine"></div>
+    </button>
+      <!-- Bouton RESET pour Ride Stop -->
+    <button id="resetRideStop" class="reset-btn">
     </button>
 
     <button id="momentaryButton" class="momentary-btn">      <!--Bouton Test Lampe-->
@@ -45,6 +54,7 @@
     <div class="attractionlight off" id="rotarySwitch1">  <!--Eclairages Attraction-->
       </div>
     <div class="led1" id="lightIndicator1"></div>           <!--Témoin lumineux 1-->
+    <div id="screenGlow"></div>                             <!--Glow Lumière-->
 
     <div class="restaurantlight off" id="rotarySwitch2">  <!--Eclairages Restaurant-->
       </div>
@@ -57,5 +67,6 @@
 <audio id="music" src="bgm.mp3" preload="auto"></audio>                 <!-- BGM-->
   </div>
   <script src="script.js"></script>
+  
 </body>
 </html>
