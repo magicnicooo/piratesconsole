@@ -242,6 +242,61 @@ switch3.addEventListener('click', () => {
   switch3.classList.toggle('off', !isOn);
 });
 
+//Menu de contrôle des voyants
+function toggleMenu() {
+  const menu = document.getElementById('menuContent');
+  const toggleBtn = document.getElementById('menuToggleBtn');
+  menu.classList.toggle('show');
+  toggleBtn.textContent = menu.classList.contains('show') ? 'Menu' : 'Menu';
+}
+
+function toggleLEDs() {
+  const greenled1 = document.getElementById('greenled1');
+  const redled2 = document.getElementById('redled2');
+
+  const greenIsOn = greenled1.classList.contains('on');
+
+  if (greenIsOn) {
+    greenled1.classList.remove('on');
+    redled2.classList.add('on');
+  } else {
+    greenled1.classList.add('on');
+    redled2.classList.remove('on');
+  }
+}
+//Voyants Niveaux Bassins
+function toggleorangeled1 () {
+  const orangeled1 = document.getElementById('orangeled1');
+  orangeled1.classList.toggle('on');
+}
+//Voyants Niveaux Bassins
+function toggleorangeled2 () {
+  const orangeled2 = document.getElementById('orangeled2');
+  orangeled2.classList.toggle('on');
+}
+
+//Voyant 29.25
+function toggleredled1 () {
+  const redled1 = document.getElementById('redled1');
+  redled1.classList.toggle('on');
+}
+//Voyant cuve ok
+function togglegreenled1() {
+  const greenled1 = document.getElementById('greenled1');
+  const redled2 = document.getElementById('redled2');
+
+  greenled1.classList.add('on');
+  redled2.classList.remove('on');
+};
+//Voyant cuve défaut
+function toggleredled2() {
+  const greenled1 = document.getElementById('greenled1');
+  const redled2 = document.getElementById('redled2');
+
+  redled2.classList.add('on');
+  greenled1.classList.remove('on');
+}
+
 //Ecran APEX
 function obtenirHorodatage() {
   const maintenant = new Date();

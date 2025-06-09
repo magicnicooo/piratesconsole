@@ -6,6 +6,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!--Menu contrôle voyants-->
+      <div class="menu-container">
+      <button onclick="toggleMenu()" id="menuToggleBtn">Menu</button>
+        <div class="menu-content" id="menuContent">
+      <button onclick="toggleredled1()">29.25</button>
+      <button onclick="toggleLEDs()">Effets show</button>
+      <button onclick="toggleorangeled1()">cuve haute</button>
+      <button onclick="toggleorangeled2()">cuve basse</button>
+
+        </div>
+    </div>
   <!--Clé 455-->
   <img src="cle.png" id="key" alt="Clé" />
   <div id="lock"></div>
@@ -62,6 +73,11 @@
 
     <div class="emergencylight off" id="rotarySwitch3">  <!--Eclairages Restaurant-->
       </div>
+    <div class="redled1" id="redled1"></div>           <!--Témoin 29.25-->
+    <div class="redled2" id="redled2"></div>           <!--Témoin cuve défaut-->
+    <div class="greenled1 on" id="greenled1"></div>    <!--Témoin cuve défaut-->
+    <div class="orangeled1" id="orangeled1"></div>  <!--Témoin niveau bassin-->
+    <div class="orangeled2" id="orangeled2"></div>  <!--Témoin niveau bassin-->
 
 <button id="silenceButton" class="silence-btn">Silence</button>           <!--Bouton Silence-->
 <audio id="music" src="bgm.mp3" preload="auto"></audio>                 <!-- BGM-->

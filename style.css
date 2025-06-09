@@ -46,8 +46,8 @@ margin: 0;
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background: radial-gradient(circle at 40% 40%, #e67e22, #c45d00);
-  border: 3px solid #994c00;
+  background: radial-gradient(circle at 40% 40%, #F2A000, #f69800);
+  border: 3px solid #ccc;
   box-shadow:
     0 6px 15px rgba(0, 0, 0, 0.3),
     inset 0 -4px 8px rgba(0, 0, 0, 0.4);
@@ -59,8 +59,8 @@ margin: 0;
 /* Effet clignotant glow pour reset */
 .reset-btn.blink {
   box-shadow:
-    0 0 20px rgba(255, 140, 0, 0.8),
-    inset 0 0 15px rgba(255, 200, 0, 0.7);
+    0 0 20px rgba(248, 184, 10, 0.8),
+    inset 0 0 15px rgba(246, 172, 0, 0.7);
   animation: blinkGlow 1.7s infinite;
 }
 
@@ -74,8 +74,8 @@ margin: 0;
 }
 /* champignon rouge */
 .round-btn-red {
-    position: absolute;
-   width: 80px;
+  position: absolute;
+  width: 80px;
   height: 80px;
   background: radial-gradient(circle at 40% 40%, #e63622, #c40700);
   border-radius: 50%;
@@ -282,6 +282,123 @@ left: 1638px;
   background-color: #0f0;
   box-shadow: 0 0 6px #0f0, inset 0 0 2px #080;
 }
+
+/*Menu controle voyants*/
+.menu-container {
+  position: absolute;
+  top: 20px;
+  right: 120px;
+}
+
+.menu-content {
+  display: none;
+  margin-top: 10px;
+}
+
+.menu-content.show {
+  display: block;
+}
+
+/* Stack buttons vertically */
+.menu-content button {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/*Voyant 29.25*/
+.redled1 {
+  position: absolute;
+  top: 104px;
+  left: 1327px;
+  width: 45px;
+  height: 45px;      background-color: rgb(123, 0, 0);
+  border: 3px solid rgb(85, 0, 0);
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px #420000;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  }
+
+.redled1.on {
+  background-color: #f44;
+  box-shadow: 0 0 20px #f44, inset 0 0 15px #c00;
+    }
+
+/*Témoins Cuve hydraulique*/
+.redled2 {
+  position: absolute;
+  top: 380px;
+  left: 734px;
+  width: 45px;
+  height: 45px;      background-color: rgb(123, 0, 0);
+  border: 3px solid rgb(85, 0, 0);
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px #420000;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  }
+
+.redled2.on {
+  background-color: #f44;
+  box-shadow: 0 0 20px #f44, inset 0 0 15px #c00;
+    }
+
+.greenled1.on {
+  background-color: #0f0;
+  box-shadow: 0 0 20px #0f0, inset 0 0 15px #080;
+    }
+
+.greenled1 {
+  position: absolute;
+  top: 380px;
+  left: 634px;
+  width: 45px;
+  height: 45px;      background-color: #030;
+  border: 3px solid #060;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px rgb(0, 15, 0);
+  transition: background-color 0.2s, box-shadow 0.2s;
+  }
+
+/*Témoins effets show*/
+.orangeled1 {
+  position: absolute;
+  top: 242px;
+  left: 634px;
+  width: 45px;
+  height: 45px;      background-color: rgb(165, 93, 0);
+  border: 3px solid rgb(102, 54, 0);
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px rgb(104, 54, 0);
+  transition: background-color 0.2s, box-shadow 0.2s;
+  }
+
+.orangeled1.on {
+  background-color: rgb(255, 179, 0);
+  box-shadow: 0 0 20px rgb(255, 179, 0), inset 0 0 15px rgb(136, 91, 0);
+    }
+
+.orangeled2 {
+  position: absolute;
+  top: 242px;
+  left: 734px;
+  width: 45px;
+  height: 45px;      background-color: rgb(165, 93, 0);
+  border: 3px solid rgb(102, 54, 0);
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px rgb(104, 54, 0);
+  transition: background-color 0.2s, box-shadow 0.2s;
+  }
+
+.orangeled2.on {
+  background-color: rgb(255, 179, 0);
+  box-shadow: 0 0 20px rgb(255, 179, 0), inset 0 0 15px rgb(136, 91, 0);
+    }
 
 #screenGlow {
   position: fixed;
